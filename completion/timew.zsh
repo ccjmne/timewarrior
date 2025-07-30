@@ -6,8 +6,8 @@
 _timew() {
     local ret=1
 
-    if [ -d ${HOME}/.local/share/timewarrior/data ]; then
-        data_dir="${HOME}/.local/share/timewarrior/data"
+    if [ -d ${XDG_DATA_HOME:-${HOME}/.local/share}/timewarrior/data ]; then
+        data_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/timewarrior/data"
     fi
 
     if [ -d ${HOME}/.timewarrior/data ]; then
@@ -105,7 +105,7 @@ _commands=(
     'move:change interval start-time'
     'report:run an extension report'
     'resize:set interval duration'
-    'revert:revert Timewarrior commands'
+    'retag:replace all tags in intervals'
     'shorten:shorten intervals'
     'show:display configuration'
     'split:split intervals'
@@ -115,6 +115,7 @@ _commands=(
     'tag:add tags to intervals'
     'tags:display a list of tags'
     'track:add intervals to the database'
+    'undo:revert the last Timewarrior command'
     'untag:remove tags from intervals'
     'week:shows a chart depicting a single week (current week by default)'
 )
